@@ -1,0 +1,1 @@
+# DDD_MediatR_Clean
