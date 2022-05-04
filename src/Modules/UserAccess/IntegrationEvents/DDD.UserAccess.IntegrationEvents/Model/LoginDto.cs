@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DDD.UserAccess.IntegrationEvents.Response
+namespace DDD.UserAccess.IntegrationEvents.Model
 {
     public class LoginDto
     {

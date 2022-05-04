@@ -34,6 +34,15 @@ namespace DDD.Shared.Infrastructure.Persistence
         {
             return TableNoTracking.AsEnumerable();
         }
+        public Task<List<TEntity>> GetPagination(int skip, int size, Expression<Func<TEntity, bool>>? predict = null)
+        {
+            return TableNoTracking.Where(predict != null ? predict : t => true)
+                                  .Skip(skip).Take(size).ToListAsync();
+        }
+        public Task<List<TEntity>> GetPagination(int skip, int size)
+        {
+            return TableNoTracking.Skip(skip).Take(size).ToListAsync();
+        }
         public Task<TEntity?> Get(Expression<Func<TEntity, bool>> predict)
         {
             return TableNoTracking.SingleOrDefaultAsync(predict);

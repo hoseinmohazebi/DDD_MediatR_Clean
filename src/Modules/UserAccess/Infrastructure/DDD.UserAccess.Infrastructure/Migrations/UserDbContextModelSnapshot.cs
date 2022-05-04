@@ -85,6 +85,25 @@ namespace DDD.UserAccess.Infrastructure.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = "c0a01d1a-61b1-4bbc-b061-95e7e584c7d6",
+                            AccessFailedCount = 0,
+                            ConcurrencyStamp = "5e069ad4-7eb2-4f21-8e1f-87e28407fd58",
+                            Email = "Admin@gmail.com",
+                            EmailConfirmed = false,
+                            LockoutEnabled = false,
+                            NormalizedEmail = "ADMIN@GMAIL.COM",
+                            NormalizedUserName = "ADMIN",
+                            PasswordHash = "AQAAAAEAACcQAAAAECoM0y6JTi25wplleioQv+oll/qbc82t4FZ3T36J8okOykVxqPDfGX0x/zKQ/Beliw==",
+                            PhoneNumber = "09111111111",
+                            PhoneNumberConfirmed = false,
+                            SecurityStamp = "93036b0e-d6b6-48b3-a049-d13edf785f0c",
+                            TwoFactorEnabled = false,
+                            UserName = "Admin"
+                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

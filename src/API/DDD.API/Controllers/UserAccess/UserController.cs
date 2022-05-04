@@ -1,4 +1,6 @@
 ﻿using DDD.UserAccess.IntegrationEvents.Events;
+using DDD.UserAccess.IntegrationEvents.Events.Command;
+using DDD.UserAccess.IntegrationEvents.Events.Query;
 using MediatR;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Cors;

@@ -154,6 +154,11 @@ namespace DDD.UserAccess.Infrastructure.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "AspNetUsers",
+                columns: new[] { "Id", "AccessFailedCount", "ConcurrencyStamp", "Email", "EmailConfirmed", "LockoutEnabled", "LockoutEnd", "NormalizedEmail", "NormalizedUserName", "PasswordHash", "PhoneNumber", "PhoneNumberConfirmed", "SecurityStamp", "TwoFactorEnabled", "UserName" },
+                values: new object[] { "c0a01d1a-61b1-4bbc-b061-95e7e584c7d6", 0, "5e069ad4-7eb2-4f21-8e1f-87e28407fd58", "Admin@gmail.com", false, false, null, "ADMIN@GMAIL.COM", "ADMIN", "AQAAAAEAACcQAAAAECoM0y6JTi25wplleioQv+oll/qbc82t4FZ3T36J8okOykVxqPDfGX0x/zKQ/Beliw==", "09111111111", false, "93036b0e-d6b6-48b3-a049-d13edf785f0c", false, "Admin" });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",

@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using DDD.UserAccess.Domain.Users;
 using DDD.UserAccess.IntegrationEvents.Events;
+using DDD.UserAccess.IntegrationEvents.Events.Command;
 using System;
 using System.Collections.Generic;
 using System.Linq;

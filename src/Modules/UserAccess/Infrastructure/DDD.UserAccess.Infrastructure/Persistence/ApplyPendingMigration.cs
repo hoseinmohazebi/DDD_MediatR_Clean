@@ -10,12 +10,12 @@ using System.Threading.Tasks;
 namespace DDD.UserAccess.Infrastructure.Persistence
 {
     public static class ApplyPendingMigration
-    { 
-        public static void ApplyMigration(this IApplicationBuilder app)
+    {
+        public static void ApplyUserAccessMigration(this IApplicationBuilder app)
         {
             using (var serviceScope = app.ApplicationServices.CreateScope())
-            { 
-                serviceScope?.ServiceProvider?.GetService<UserDbContext>()?.Database.Migrate();
+            {
+                serviceScope?.ServiceProvider?.GetService<UserDbContext>()?.Database.Migrate(); 
             }
         }
     }

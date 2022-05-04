@@ -1,6 +1,7 @@
 ﻿using DDD.UserAccess.Application.Contracts;
 using DDD.UserAccess.IntegrationEvents.Events;
-using DDD.UserAccess.IntegrationEvents.Response;
+using DDD.UserAccess.IntegrationEvents.Events.Query;
+using DDD.UserAccess.IntegrationEvents.Model;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
 using System;
@@ -35,7 +36,7 @@ namespace DDD.UserAccess.Application.Features.User.Query
                 throw new Exception("incorrect pass");
             }
             var token = _jwtService.Generate(user);
-            return new LoginDto("t", token);
+            return new LoginDto(token, user.UserName);
         }
     }
 }

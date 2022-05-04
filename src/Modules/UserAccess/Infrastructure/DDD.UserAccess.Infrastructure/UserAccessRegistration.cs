@@ -23,7 +23,7 @@ namespace DDD.UserAccess.Infrastructure
 {
     public static class UserAccessRegistration
     {
-        public static IServiceCollection AddUserAccess(this IServiceCollection services, IConfiguration configuration)
+        public static IServiceCollection AddUserAccessServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddIdentity<Domain.Users.User, IdentityRole>()
                     .AddEntityFrameworkStores<UserDbContext>()

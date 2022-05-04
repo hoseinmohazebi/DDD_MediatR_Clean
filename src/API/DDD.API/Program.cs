@@ -1,4 +1,6 @@
 using DDD.API.Configuration.Middalware.ExceptionHandler;
+using DDD.Product.Infrastructure;
+using DDD.Product.Infrastructure.Persistence;
 using DDD.UserAccess.Application.Models.Jwt;
 using DDD.UserAccess.Infrastructure;
 using DDD.UserAccess.Infrastructure.Persistence;
@@ -12,7 +14,9 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.Configure<JwtModel>(builder.Configuration.GetSection(nameof(JwtModel)));
-builder.Services.AddUserAccess(builder.Configuration);
+
+builder.Services.AddUserAccessServices(builder.Configuration);
+builder.Services.AddProductServices(builder.Configuration);
 
 var app = builder.Build();
 
@@ -22,13 +26,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-else
-{
-}
-    app.UseCustomExceptiontusMiddleware();
+app.UseCustomExceptiontusMiddleware();
 
 app.UseAuthorization();
-app.UseAuthentication(); 
-app.ApplyMigration(); 
+app.UseAuthentication();
+app.ApplyUserAccessMigration();
+app.ApplyProductMigration();
 app.MapControllers();
 app.Run();
